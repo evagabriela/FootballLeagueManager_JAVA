@@ -1,0 +1,17 @@
+package com.company;
+
+/**
+ * Created by gzamudio on 5/27/14.
+ */
+public class Player {
+    private final String name;
+
+    public Player(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return name;
+    }
+}
