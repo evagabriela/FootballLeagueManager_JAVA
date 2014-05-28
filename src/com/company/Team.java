@@ -16,6 +16,7 @@ public class Team {
     }
 
     public void listPlayers(){
+
         for (Player player : players){
             printStream.println(player);
         }
