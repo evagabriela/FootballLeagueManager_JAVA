@@ -18,8 +18,38 @@ public class Team {
     public void listPlayers(){
 
         for (Player player : players){
-            printStream.println(player);
+            printStream.println(player.toString());
         }
     }
 
+    public Player findPlayer(String name, String number) {
+//        if player.name && player.number are found in the player list
+        for (Player player: players){
+            if (player.hasName(name) && player.hasNumber(number)){
+                return player;
+            }
+        }
+
+    return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (!players.equals(team.players)) return false;
+        if (!printStream.equals(team.printStream)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = printStream.hashCode();
+        result = 31 * result + players.hashCode();
+        return result;
+    }
 }
