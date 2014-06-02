@@ -23,7 +23,7 @@ public class Team {
     }
 
     public Player findPlayer(String name, String number) {
-//        if player.name && player.number are found in the player list
+//        if player.findByNameAndNUmber && player.number are found in the player list
         for (Player player: players){
             if (player.hasName(name) && player.hasNumber(number)){
                 return player;
