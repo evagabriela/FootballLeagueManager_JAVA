@@ -34,10 +34,7 @@ public class TeamTest {
        team.listPlayers();
 
        verify(printStream).println("Name:Gaby Team:Ohio Number:3 Age:26");
-
     }
-//I want to find a particular player in the league by their name and number
-// (a player is the right player only if they have both the correct name & correct number).
 
     @Test
     public void shouldReturnPlayerInformationIfSearchedByNameAndNumber(){
@@ -46,7 +43,6 @@ public class TeamTest {
         when(player.hasNumber("3")).thenReturn(true);
         List<Player> players = asList(player);
         Team team = new Team(printStream, players);
-
 
         Player player = team.findPlayer("Gaby", "3");
         assertEquals("Name:Gaby Team:Ohio Number:3 Age:26", player.toString());
