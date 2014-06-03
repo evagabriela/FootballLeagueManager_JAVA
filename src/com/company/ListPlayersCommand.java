@@ -13,6 +13,7 @@ public class ListPlayersCommand implements Command {
     @Override
     public void execute() {
         team.listPlayers();
+        team.listCoaches();
 
     }
 
