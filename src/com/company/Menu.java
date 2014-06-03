@@ -26,7 +26,7 @@ public class Menu {
     }
 
     public Command listMenuOptions() throws IOException {
-        printStream.println("Please select an option from the menu: ");
+        printStream.println("\n" + "Please select an option from the menu: ");
 
             listOption();
 
