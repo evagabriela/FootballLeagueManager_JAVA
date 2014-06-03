@@ -5,7 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.PrintStream;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
@@ -17,20 +19,22 @@ public class TeamTest {
     private PrintStream printStream;
     private Team team;
     private  List<Player> players;
+    private Set<Coaches> coaches;
 
     @Before
     public void setUp(){
         printStream = mock(PrintStream.class);
         player = mock(Player.class);
+        coaches = new HashSet<Coaches>();
         players = asList(player);
-        team = new Team(printStream, players);
+        team = new Team(printStream, players, coaches);
     }
 
     @Test
     public void shouldPrintPlayersOnATeam(){
        when(player.toString()).thenReturn("Name:Gaby Team:Ohio Number:3 Age:26");
        List<Player> players = asList(player);
-       Team team = new Team(printStream, players);
+       Team team = new Team(printStream, players, coaches);
        team.listPlayers();
 
        verify(printStream).println("Name:Gaby Team:Ohio Number:3 Age:26");
@@ -42,7 +46,7 @@ public class TeamTest {
         when(player.hasName("Gaby")).thenReturn(true);
         when(player.hasNumber("3")).thenReturn(true);
         List<Player> players = asList(player);
-        Team team = new Team(printStream, players);
+        Team team = new Team(printStream, players, coaches);
 
         Player player = team.findPlayer("Gaby", "3");
         assertEquals("Name:Gaby Team:Ohio Number:3 Age:26", player.toString());

@@ -2,28 +2,29 @@ package com.company;
 
 import java.io.PrintStream;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by gzamudio on 5/27/14.
  */
 public class Team {
-    private final PrintStream printStream;
-    private final List<Player> players;
+    private PrintStream printStream;
+    private List<Player> players;
+    private Set<Coaches> coaches;
 
-    public Team(PrintStream printStream, List<Player> players) {
+    public Team(PrintStream printStream, List<Player> players, Set<Coaches> coaches) {
         this.printStream = printStream;
         this.players = players;
+        this.coaches = coaches;
     }
 
     public void listPlayers(){
-
         for (Player player : players){
             printStream.println(player.toString());
         }
     }
 
     public Player findPlayer(String name, String number) {
-//        if player.findByNameAndNUmber && player.number are found in the player list
         for (Player player: players){
             if (player.hasName(name) && player.hasNumber(number)){
                 return player;
@@ -32,6 +33,7 @@ public class Team {
 
     return null;
     }
+
 
     @Override
     public boolean equals(Object o) {
