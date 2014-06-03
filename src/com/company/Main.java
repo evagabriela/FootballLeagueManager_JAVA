@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Arrays.asList;
 
@@ -18,6 +17,7 @@ public class Main {
         DoneState done = new DoneState(false);
 
         List<Player> players = teamPlayers();
+        Set<Coaches> coaches = teamCoaches();
         Team team = new Team(printStream, players);
 
         List<Command> commands = createCommands(team, printStream, bufferedReader, done);
@@ -28,9 +28,15 @@ public class Main {
         while (!menu.userDone()) {
             menu.executeCurrentCommand();
             menu.chooseOption();
-
         }
 
+    }
+
+    private static Set<Coaches> teamCoaches() {
+        Set<Coaches> coaches = new HashSet<Coaches>();
+        coaches.add(new Coaches("Eva Atunga", "Ohio", "Head Coach"));
+        coaches.add(new Coaches("Miguel Zamudio", "Ohio", "Assistance Coach"));
+        return coaches;
     }
 
     private static List<Command> createCommands(Team team, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
