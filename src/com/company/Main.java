@@ -18,7 +18,7 @@ public class Main {
 
         List<Player> players = teamPlayers();
         Set<Coaches> coaches = teamCoaches();
-        Team team = new Team(printStream, players);
+        Team team = new Team(printStream, players, coaches);
 
         List<Command> commands = createCommands(team, printStream, bufferedReader, done);
 
