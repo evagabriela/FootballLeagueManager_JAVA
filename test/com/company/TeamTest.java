@@ -20,12 +20,15 @@ public class TeamTest {
     private Team team;
     private  List<Player> players;
     private Set<Coaches> coaches;
+    private Coaches coach;
 
     @Before
     public void setUp(){
         printStream = mock(PrintStream.class);
         player = mock(Player.class);
+        coach = mock(Coaches.class);
         coaches = new HashSet<Coaches>();
+        coaches.add(coach);
         players = asList(player);
         team = new Team(printStream, players, coaches);
     }
@@ -50,5 +53,14 @@ public class TeamTest {
 
         Player player = team.findPlayer("Gaby", "3");
         assertEquals("Name:Gaby Team:Ohio Number:3 Age:26", player.toString());
+    }
+
+    @Test
+    public void shouldReturnPlayerAndCoachesInformationWhenOptionOne(){
+        when(coach.toString()).thenReturn("Eva Atunga Ohio Head Coach");
+        coaches.add(coach);
+        Team team = new Team(printStream, players, coaches);
+        team.listCoaches();
+        verify(printStream).println("Eva Atunga Ohio Head Coach");
     }
 }

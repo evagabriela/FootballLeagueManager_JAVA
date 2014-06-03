@@ -24,10 +24,9 @@ public class Main {
 
         Menu menu = new Menu(printStream, bufferedReader, commands, done);
         menu.chooseOption();
-
         while (!menu.userDone()) {
-            menu.executeCurrentCommand();
-            menu.chooseOption();
+          menu.executeCurrentCommand();
+          menu.chooseOption();
         }
 
     }

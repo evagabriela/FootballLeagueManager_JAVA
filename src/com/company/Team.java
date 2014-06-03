@@ -19,6 +19,7 @@ public class Team {
     }
 
     public void listPlayers(){
+        printStream.println("The Players are: " );
         for (Player player : players){
             printStream.println(player.toString());
         }
@@ -33,6 +34,14 @@ public class Team {
 
     return null;
     }
+
+    public void listCoaches(){
+
+        for (Coaches coach : coaches){
+            printStream.println(coach.toString());
+        }
+    }
+
 
 
     @Override
