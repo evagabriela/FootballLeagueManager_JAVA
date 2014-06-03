@@ -22,7 +22,7 @@
     <favorites_list name="FootballLeagueManager" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5228041">
+    <splitter split-orientation="horizontal" split-proportion="0.6114865">
       <split-first>
         <leaf>
           <file leaf-file-name="TradePlayerCommand.java" pinned="false" current="false" current-in-tab="false">
@@ -597,12 +597,12 @@
       <workItem from="1401320609758" duration="1232000" />
       <workItem from="1401321896680" duration="14179000" />
       <workItem from="1401474933930" duration="9351000" />
-      <workItem from="1401750580996" duration="17836000" />
+      <workItem from="1401750580996" duration="17999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56656000" />
+    <option name="totallyTimeSpent" value="56819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />

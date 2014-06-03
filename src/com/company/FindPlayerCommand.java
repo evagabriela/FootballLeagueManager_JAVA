@@ -39,13 +39,13 @@ public class FindPlayerCommand implements Command {
     }
 
     private String readLine() {
-        String playerName;
+        String playerInfo;
         try{
-            playerName = bufferReader.readLine();
+            playerInfo = bufferReader.readLine();
         }catch (IOException e){
             throw new InputErrorIOException();
         }
-        return playerName;
+        return playerInfo;
     }
 
     @Override
