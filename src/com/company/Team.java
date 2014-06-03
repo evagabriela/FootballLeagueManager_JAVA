@@ -63,4 +63,11 @@ public class Team {
         result = 31 * result + players.hashCode();
         return result;
     }
+
+    public void tradePlayer(String playerName, String playerNumber, String newTeamInfo) {
+        Player foundPlayer = findPlayer(playerName, playerNumber);
+//pending to add the logic on how am I going to add players to a new team
+//        Ideas:
+//        -have another class which knows about all the teams (ex, league class knows about all the teams in the league of soccer)
+    }
 }
