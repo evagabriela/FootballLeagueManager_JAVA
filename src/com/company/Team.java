@@ -19,7 +19,7 @@ public class Team {
     }
 
     public void listPlayers(){
-        printStream.println("The Players are: " );
+        printStream.println("The members of the team are: " );
         for (Player player : players){
             printStream.println(player.toString());
         }
