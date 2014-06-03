@@ -15,18 +15,29 @@ public class Main {
     public static void main(String[] args) throws IOException {
         PrintStream printStream = System.out;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        DoneState done = new DoneState(false);
 
         List<Player> players = teamPlayers();
         Team team = new Team(printStream, players);
 
+        List<Command> commands = createCommands(team, printStream, bufferedReader, done);
+
+        Menu menu = new Menu(printStream, bufferedReader, commands, done);
+        menu.chooseOption();
+
+        while (!menu.userDone()) {
+            menu.executeCurrentCommand();
+            menu.chooseOption();
+
+        }
+
+    }
+
+    private static List<Command> createCommands(Team team, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
         List<Command> commands = new ArrayList<Command>();
         commands.add(new ListPlayersCommand(team));
         commands.add(new FindPlayerCommand(printStream, bufferedReader, team));
-
-        Menu menu = new Menu(printStream, bufferedReader, commands);
-        Command command = menu.listMenuOptions();
-        command.execute();
-
+        return commands;
     }
 
     private static List<Player> teamPlayers(){
