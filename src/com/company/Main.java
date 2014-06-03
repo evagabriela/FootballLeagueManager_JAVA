@@ -43,6 +43,7 @@ public class Main {
         commands.add(new ListPlayersCommand(team));
         commands.add(new FindPlayerCommand(printStream, bufferedReader, team));
         commands.add(new ListTeamMembers(team));
+        commands.add(new TradePlayerCommand(printStream, bufferedReader, team));
         return commands;
     }
 
