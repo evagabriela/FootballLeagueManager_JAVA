@@ -11,5 +11,10 @@ public class Coaches {
         this.title = title;
     }
 
+    @Override
+    public String toString(){
+        return "Name:" + name + " Team:" + team + " Title:" + title ;
+    }
+
 
 }
