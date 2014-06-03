@@ -9,19 +9,26 @@ import java.util.List;
  * Created by gzamudio on 5/29/14.
  */
 public class Menu {
-    private final PrintStream printStream;
-    private final BufferedReader bufferedReader;
-    private final List<Command> commands;
+    private PrintStream printStream;
+    private BufferedReader bufferedReader;
+    private List<Command> commands;
+    private Command currentCommand;
+    private DoneState done;
+    private QuitCommand quitCommand = new QuitCommand(done);
 
-    public Menu(PrintStream printStream, BufferedReader bufferedReader,  List<Command> commands){
+    public Menu(PrintStream printStream, BufferedReader bufferedReader,  List<Command> commands, DoneState done){
         this.printStream = printStream;
         this.bufferedReader = bufferedReader;
+        this.done = done;
         this.commands = commands;
+        this.commands.add(quitCommand);
+        currentCommand = quitCommand;
     }
 
     public Command listMenuOptions() throws IOException {
         printStream.println("Please select an option from the menu: ");
-        listOption();
+
+            listOption();
 
         return commands.get(readOptionSelection());
     }
@@ -37,5 +44,18 @@ public class Menu {
             printStream.println(optionNumber++ + ". " + command.name());
         }
     }
+
+    public boolean userDone(){
+       return currentCommand.equals(quitCommand);
+    }
+
+    public void executeCurrentCommand(){
+        currentCommand.execute();
+    }
+
+    public void chooseOption() throws IOException {
+        currentCommand = listMenuOptions();
+    }
+
 
 }

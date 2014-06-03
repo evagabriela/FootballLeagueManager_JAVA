@@ -19,7 +19,7 @@ public class MenuTest {
     private List<Command> commands;
     private Menu menu;
     private Command someCommand;
-
+    private DoneState done;
 
 
     @Before
@@ -31,7 +31,7 @@ public class MenuTest {
         someCommand = mock(Command.class);
         commands.add(someCommand);
 
-        menu = new Menu(printStream, bufferedReader, commands);
+        menu = new Menu(printStream, bufferedReader, commands, done);
     }
 
     @Test
@@ -52,6 +52,27 @@ public class MenuTest {
         verify(firstCommand).execute();
     }
 
+//    @Test
+//    public void shouldExecuteFindPlayerCommandWhenOptionTwoWasChosenFromMenu() throws IOException {
+//        when(bufferedReader.readLine()).thenReturn("2");
+//        Command secondCommand = mock(Command.class);
+//        commands.add(secondCommand);
+//
+//        menu.listMenuOptions();
+//        verify(secondCommand).execute();
+//
+//    }
+
+//    @Test
+//    public void shouldExecuteQuiteWhenOptionThreeWasChosenFromMenu() throws IOException {
+//        when(bufferedReader.readLine()).thenReturn("3");
+//        Command thirdCommand = mock(Command.class);
+//        commands.add(thirdCommand);
+//
+//        menu.listMenuOptions();
+//        verify(thirdCommand).execute();
+//
+//    }
 
 
 
