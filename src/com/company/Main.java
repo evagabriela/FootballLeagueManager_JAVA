@@ -42,7 +42,7 @@ public class Main {
         List<Command> commands = new ArrayList<Command>();
         commands.add(new ListPlayersCommand(team));
         commands.add(new FindPlayerCommand(printStream, bufferedReader, team));
-        commands.add(new ListTeamMembers(team));
+        commands.add(new ListTeamMembersCommand(team));
         commands.add(new TradePlayerCommand(printStream, bufferedReader, team));
         return commands;
     }
