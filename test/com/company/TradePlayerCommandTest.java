@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 
 public class TradePlayerCommandTest {
     private TradePlayerCommand command;
-    private Team team;
+    private League league;
     private PrintStream printStream;
     private BufferedReader bufferReader;
 
@@ -23,8 +23,8 @@ public class TradePlayerCommandTest {
     public void setUp(){
         printStream = mock(PrintStream.class);
         bufferReader = mock(BufferedReader.class);
-        team = mock(Team.class);
-        command = new TradePlayerCommand(printStream, bufferReader, team);
+        league = mock(League.class);
+        command = new TradePlayerCommand(printStream, bufferReader, league);
     }
 
     @Test

@@ -7,12 +7,12 @@ import java.util.Set;
 /**
  * Created by gzamudio on 5/27/14.
  */
-public class Team {
+public class League {
     private PrintStream printStream;
     private List<Player> players;
     private Set<Coaches> coaches;
 
-    public Team(PrintStream printStream, List<Player> players, Set<Coaches> coaches) {
+    public League(PrintStream printStream, List<Player> players, Set<Coaches> coaches) {
         this.printStream = printStream;
         this.players = players;
         this.coaches = coaches;
@@ -49,10 +49,10 @@ public class Team {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Team team = (Team) o;
+        League league = (League) o;
 
-        if (!players.equals(team.players)) return false;
-        if (!printStream.equals(team.printStream)) return false;
+        if (!players.equals(league.players)) return false;
+        if (!printStream.equals(league.printStream)) return false;
 
         return true;
     }

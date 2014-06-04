@@ -7,14 +7,14 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class ListTeamMembersCommandTest {
+public class ListLeagueMembersCommandTest {
     private ListTeamMembersCommand command;
-    private Team team;
+    private League league;
 
     @Before
     public void setUp(){
-        team = mock(Team.class);
-        command = new ListTeamMembersCommand(team);
+        league = mock(League.class);
+        command = new ListTeamMembersCommand(league);
     }
 
     @Test
@@ -25,8 +25,8 @@ public class ListTeamMembersCommandTest {
     @Test
     public void shouldListAllPlayersAndCoachesWhenExecuteMethodIsCall(){
         command.execute();
-        verify(team).listPlayers();
-        verify(team).listCoaches();
+        verify(league).listPlayers();
+        verify(league).listCoaches();
     }
 
 }

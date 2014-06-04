@@ -17,12 +17,12 @@ public class Main {
 
         List<Player> players = teamPlayers();
         Set<Coaches> coaches = teamCoaches();
-        Team team = new Team(printStream, players, coaches);
+        League league = new League(printStream, players, coaches);
 
-        List<Command> commands = createCommands(team, printStream, bufferedReader, done);
-
+        List<Command> commands = createCommands(league, printStream, bufferedReader, done);
         Menu menu = new Menu(printStream, bufferedReader, commands, done);
         FootballLeagueController controller = new FootballLeagueController(printStream, menu);
+        
         controller.start();
     }
 
@@ -33,12 +33,12 @@ public class Main {
         return coaches;
     }
 
-    private static List<Command> createCommands(Team team, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
+    private static List<Command> createCommands(League league, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
         List<Command> commands = new ArrayList<Command>();
-        commands.add(new ListPlayersCommand(team));
-        commands.add(new FindPlayerCommand(printStream, bufferedReader, team));
-        commands.add(new ListTeamMembersCommand(team));
-        commands.add(new TradePlayerCommand(printStream, bufferedReader, team));
+        commands.add(new ListPlayersCommand(league));
+        commands.add(new FindPlayerCommand(printStream, bufferedReader, league));
+        commands.add(new ListTeamMembersCommand(league));
+        commands.add(new TradePlayerCommand(printStream, bufferedReader, league));
         return commands;
     }
 

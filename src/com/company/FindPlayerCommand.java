@@ -8,14 +8,14 @@ import java.io.PrintStream;
  * Created by gzamudio on 5/29/14.
  */
 public class FindPlayerCommand implements Command {
-    private Team team;
+    private League league;
     private BufferedReader bufferReader;
     private PrintStream printStream;
 
-    public FindPlayerCommand(PrintStream printStream, BufferedReader bufferedReader, Team team) {
+    public FindPlayerCommand(PrintStream printStream, BufferedReader bufferedReader, League league) {
         this.printStream = printStream;
         this.bufferReader = bufferedReader;
-        this.team = team;
+        this.league = league;
 
     }
 
@@ -24,7 +24,7 @@ public class FindPlayerCommand implements Command {
         String playerName = promptedInput("Enter the name of the player");
         String playerNumber = promptedInput("Enter the number of the player");
 
-        Player foundPlayer = team.findPlayer(playerName, playerNumber);
+        Player foundPlayer = league.findPlayer(playerName, playerNumber);
         if (foundPlayer != null){
             printStream.println(foundPlayer.toString());
         }else {

@@ -11,12 +11,12 @@ import static org.mockito.Mockito.when;
 
 public class PlayerTest {
     private Player player;
-    private Team team;
+    private League league;
 
     @Before
     public void setUp(){
         player = new Player("Gaby", "Ohio", "3", "26");
-        team = mock(Team.class);
+        league = mock(League.class);
     }
 
     @Test
@@ -26,13 +26,13 @@ public class PlayerTest {
 
     @Test
     public void shouldReturnTrueIfPlayerNameMatchesTheOneInTheTeam(){
-        when(team.findPlayer("Gaby", "3")).thenReturn(player);
+        when(league.findPlayer("Gaby", "3")).thenReturn(player);
         assertTrue(player.hasName("Gaby"));
     }
 
     @Test
     public void shouldReturnFalseIfPlayerNameDoesntMatchTheOneInTheTeam(){
-        when(team.findPlayer("Gaby", "3")).thenReturn(player);
+        when(league.findPlayer("Gaby", "3")).thenReturn(player);
         assertFalse(player.hasName("Maria"));
     }
 

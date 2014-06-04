@@ -8,13 +8,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class ListPlayersCommandTest {
-    private Team team;
+    private League league;
     private ListPlayersCommand command;
 
     @Before
     public void setUp(){
-        team = mock(Team.class);
-        command = new ListPlayersCommand(team);
+        league = mock(League.class);
+        command = new ListPlayersCommand(league);
 
     }
 
@@ -26,7 +26,7 @@ public class ListPlayersCommandTest {
     @Test
     public void shouldListAllPlayersWhenExecuteMethodIsCall(){
         command.execute();
-        verify(team).listPlayers();
+        verify(league).listPlayers();
     }
 
 }

@@ -7,13 +7,13 @@ import java.io.PrintStream;
 public class TradePlayerCommand implements Command {
     private PrintStream printStream;
     private BufferedReader bufferedReader;
-    private Team team;
+    private League league;
 
-    public TradePlayerCommand(PrintStream printStream, BufferedReader bufferedReader, Team team) {
+    public TradePlayerCommand(PrintStream printStream, BufferedReader bufferedReader, League league) {
 
         this.printStream = printStream;
         this.bufferedReader = bufferedReader;
-        this.team = team;
+        this.league = league;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class TradePlayerCommand implements Command {
         String playerName = promptedInput("Enter the name of the player: ");
         String playerNumber = promptedInput("Enter the number of the player: ");
         String newTeamInfo = promptedInput("Enter the name of the player's new team: ");
-        team.tradePlayer(playerName, playerNumber, newTeamInfo);
+        league.tradePlayer(playerName, playerNumber, newTeamInfo);
 //        here I can do display player ex. team.displayPlayer(playerName, playerNumber)
 
 

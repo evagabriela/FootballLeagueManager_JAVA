@@ -1,16 +1,16 @@
 package com.company;
 
 public class ListTeamMembersCommand implements Command {
-    private Team team;
+    private League league;
 
-    public ListTeamMembersCommand(Team team) {
-        this.team = team;
+    public ListTeamMembersCommand(League league) {
+        this.league = league;
     }
 
     @Override
     public void execute() {
-        team.listPlayers();
-        team.listCoaches();
+        league.listPlayers();
+        league.listCoaches();
     }
 
     @Override

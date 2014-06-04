@@ -15,15 +15,15 @@ import static org.mockito.Mockito.when;
 public class FindPlayerCommandTest {
     private PrintStream printStream;
     private BufferedReader bufferReader;
-    private Team team;
+    private League league;
     private FindPlayerCommand command;
 
     @Before
     public void setUp(){
         printStream = mock(PrintStream.class);
         bufferReader = mock(BufferedReader.class);
-        team = mock(Team.class);
-        command = new FindPlayerCommand(printStream, bufferReader, team);
+        league = mock(League.class);
+        command = new FindPlayerCommand(printStream, bufferReader, league);
 
     }
 
