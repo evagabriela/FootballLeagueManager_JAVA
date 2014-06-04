@@ -10,7 +10,6 @@ import static java.util.Arrays.asList;
 
 public class Main {
 
-
     public static void main(String[] args) throws IOException {
         PrintStream printStream = System.out;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -23,12 +22,8 @@ public class Main {
         List<Command> commands = createCommands(team, printStream, bufferedReader, done);
 
         Menu menu = new Menu(printStream, bufferedReader, commands, done);
-        menu.chooseOption();
-        while (!menu.userDone()) {
-          menu.executeCurrentCommand();
-          menu.chooseOption();
-        }
-
+        FootballLeagueController controller = new FootballLeagueController(printStream, menu);
+        controller.start();
     }
 
     private static Set<Coaches> teamCoaches() {

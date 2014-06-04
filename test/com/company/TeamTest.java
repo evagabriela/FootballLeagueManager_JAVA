@@ -63,4 +63,8 @@ public class TeamTest {
         team.listCoaches();
         verify(printStream).println("Eva Atunga Ohio Head Coach");
     }
+
+    //pending to add the logic on how am I going to add players to a new team
+//        Ideas:
+//        -have another class which knows about all the teams (ex, league class knows about all the teams in the league of soccer)
 }
