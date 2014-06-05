@@ -1,9 +1,10 @@
 package com.company;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class League {
-    private HashSet<Team> teams;
+    private Set<Team> teams;
 
     public League(){
         teams = new HashSet<Team>();
@@ -13,15 +14,15 @@ public class League {
         teams.add(team);
     }
 
-    public HashSet<Team> getListTeams(){
+    public Set<Team> getListTeams(){
         return teams;
     }
 
-    public HashSet<Player> getListPlayers(){
-        HashSet<Player> leaguePlayers = new HashSet<Player>();
+    public Set<Player> getListPlayers(){
+        Set<Player> leaguePlayers = new HashSet<Player>();
 
         for (Team team: teams){
-           HashSet<Player> teamPlayers = team.getListPlayers();
+           Set<Player> teamPlayers = team.getListPlayers();
            for (Player player: teamPlayers){
                 leaguePlayers.add(player);
            }
@@ -31,7 +32,7 @@ public class League {
     }
 
     public Player findPlayer(String name, String number) throws InputErrorIOException{
-        HashSet<Player> leaguePlayers = getListPlayers();
+        Set<Player> leaguePlayers = getListPlayers();
         for (Player player: leaguePlayers){
             if (player.hasNameAndNumber(name, number)){
                 return player;
@@ -57,5 +58,22 @@ public class League {
         oldTeam.removePlayer(player);
         team.addPlayer(player);
         player.setTeam(team);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof League)) return false;
+
+        League league = (League) o;
+
+        if (!teams.equals(league.teams)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return teams.hashCode();
     }
 }
