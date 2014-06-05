@@ -8,7 +8,7 @@ import java.io.PrintStream;
 
 import static org.mockito.Mockito.*;
 
-public class FootballLeagueControllerTest {
+public class FootballTeamControllerTest {
     private PrintStream printStream;
     private Menu menu;
     private FootballLeagueController controller;
