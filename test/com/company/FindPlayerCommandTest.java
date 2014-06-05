@@ -8,15 +8,14 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class FindPlayerCommandTest {
     private PrintStream printStream;
     private BufferedReader bufferReader;
     private League league;
     private FindPlayerCommand command;
+
 
     @Before
     public void setUp(){
@@ -40,30 +39,26 @@ public class FindPlayerCommandTest {
 
     @Test
     public void shouldPromptToEnterNumberOfPlayer() throws IOException {
-        when(bufferReader.readLine()).thenReturn("Gaby");
         command.execute();
         verify(printStream).println("Enter the number of the player");
     }
 
     @Test
-    public void shouldPrintMessageIfInvalidEntry() throws IOException {
-        when(bufferReader.readLine()).thenReturn("Joseph").thenReturn("10");
+    public void shouldReturnAnInvalidMessageIfPlayerInformationIsIncorrectOrNull(){
+        when(league.findPlayer("Gaby", "1")).thenReturn(null);
         command.execute();
+
         verify(printStream).println("Sorry but we couldn't find a player with the information that your provided");
     }
 
     @Test
-    public void shouldPrintMessageIfInvalidNameEntry() throws IOException {
-        when(bufferReader.readLine()).thenReturn("Marylin");
+    public void shouldCallFindPlayerMethodWithTheUserInputsWhenExecute() throws IOException {
+        when(bufferReader.readLine()).thenReturn("Katy").thenReturn("1");
         command.execute();
-        verify(printStream).println("Sorry but we couldn't find a player with the information that your provided");
+
+        verify(league).findPlayer("Katy", "1");
     }
 
-    @Test
-    public void shouldPrintMessageIfInvalidPlayerNumberEntry() throws IOException {
-        when(bufferReader.readLine()).thenReturn("Gaby").thenReturn("1");
-        command.execute();
-        verify(printStream).println("Sorry but we couldn't find a player with the information that your provided");
-    }
+
 
 }

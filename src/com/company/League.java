@@ -1,75 +1,61 @@
 package com.company;
 
-import java.io.PrintStream;
-import java.util.List;
-import java.util.Set;
+import java.util.HashSet;
 
-/**
- * Created by gzamudio on 5/27/14.
- */
 public class League {
-    private PrintStream printStream;
-    private List<Player> players;
-    private Set<Coaches> coaches;
+    private HashSet<Team> teams;
 
-    public League(PrintStream printStream, List<Player> players, Set<Coaches> coaches) {
-        this.printStream = printStream;
-        this.players = players;
-        this.coaches = coaches;
+    public League(){
+        teams = new HashSet<Team>();
     }
 
-    public void listPlayers(){
-        printStream.println("The members of the team are: " );
-        for (Player player : players){
-            printStream.println(player.toString());
+    public void addTeam(Team team){
+        teams.add(team);
+    }
+
+    public HashSet<Team> getListTeams(){
+        return teams;
+    }
+
+    public HashSet<Player> getListPlayers(){
+        HashSet<Player> leaguePlayers = new HashSet<Player>();
+
+        for (Team team: teams){
+           HashSet<Player> teamPlayers = team.getListPlayers();
+           for (Player player: teamPlayers){
+                leaguePlayers.add(player);
+           }
+
         }
+        return leaguePlayers;
     }
 
-    public Player findPlayer(String name, String number) {
-        for (Player player: players){
-            if (player.hasName(name) && player.hasNumber(number)){
+    public Player findPlayer(String name, String number) throws InputErrorIOException{
+        HashSet<Player> leaguePlayers = getListPlayers();
+        for (Player player: leaguePlayers){
+            if (player.hasNameAndNumber(name, number)){
                 return player;
             }
+
         }
 
-    return null;
+        throw new InputErrorIOException();
     }
 
-    public void listCoaches(){
-
-        for (Coaches coach : coaches){
-            printStream.println(coach.toString());
+    public Team findTeam(String name) throws InputErrorIOException{
+        for (Team team: teams){
+            if (team.hasName(name)){
+                return team;
+            }
         }
+        throw new InputErrorIOException();
     }
 
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        League league = (League) o;
-
-        if (!players.equals(league.players)) return false;
-        if (!printStream.equals(league.printStream)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = printStream.hashCode();
-        result = 31 * result + players.hashCode();
-        return result;
-    }
-
-    public void tradePlayer(String playerName, String playerNumber, String newTeamInfo) {
-        Player foundPlayer = findPlayer(playerName, playerNumber);
-//pending to add the logic on how am I going to add players to a new team
-//        Ideas:
-//        -have another class which knows about all the teams (ex, league class knows about all the teams in the league of soccer)
-
-
+    public void tradePlayer(Player player, Team team) {
+        Team oldTeam = player.getTeam();
+        oldTeam.removePlayer(player);
+        team.addPlayer(player);
+        player.setTeam(team);
     }
 }

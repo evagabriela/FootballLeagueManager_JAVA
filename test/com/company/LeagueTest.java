@@ -1,70 +1,64 @@
 package com.company;
 
-
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.PrintStream;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static junit.framework.TestCase.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class LeagueTest {
 
-    private Player player;
-    private PrintStream printStream;
+    private Team team;
+    private HashSet<Team> teams;
     private League league;
-    private  List<Player> players;
-    private Set<Coaches> coaches;
-    private Coaches coach;
+    private HashSet<Player> players;
+    private Player player;
 
     @Before
-    public void setUp(){
-        printStream = mock(PrintStream.class);
+    public void setUp() throws Exception {
+       league = new League();
+        teams = new HashSet<Team>();
+        team = mock(Team.class);
+        teams.add(team);
         player = mock(Player.class);
-        coach = mock(Coaches.class);
-        coaches = new HashSet<Coaches>();
-        coaches.add(coach);
-        players = asList(player);
-        league = new League(printStream, players, coaches);
+       ;
+
     }
 
     @Test
-    public void shouldPrintPlayersOnATeam(){
-       when(player.toString()).thenReturn("Name:Gaby Team:Ohio Number:3 Age:26");
-       List<Player> players = asList(player);
-       League league = new League(printStream, players, coaches);
-       league.listPlayers();
-
-       verify(printStream).println("Name:Gaby Team:Ohio Number:3 Age:26");
+    public void shouldAddTeamToTheLeague() throws Exception {
+        when(team.toString()).thenReturn("team1");
+        league.addTeam(team);
+        assertTrue(teams.contains(team));
     }
 
     @Test
-    public void shouldReturnPlayerInformationIfSearchedByNameAndNumber(){
-        when(player.toString()).thenReturn("Name:Gaby Team:Ohio Number:3 Age:26");
-        when(player.hasName("Gaby")).thenReturn(true);
-        when(player.hasNumber("3")).thenReturn(true);
-        List<Player> players = asList(player);
-        League league = new League(printStream, players, coaches);
-
-        Player player = league.findPlayer("Gaby", "3");
-        assertEquals("Name:Gaby Team:Ohio Number:3 Age:26", player.toString());
+    public void shouldBeAbleToGetAListOfAllTeamsInALeague() throws Exception {
+        when(team.toString()).thenReturn("team1");
+        league.addTeam(team);
+        assertTrue(league.getListTeams().contains(team));
     }
 
     @Test
-    public void shouldReturnPlayerAndCoachesInformationWhenOptionOne(){
-        when(coach.toString()).thenReturn("Eva Atunga Ohio Head Coach");
-        coaches.add(coach);
-        League league = new League(printStream, players, coaches);
-        league.listCoaches();
-        verify(printStream).println("Eva Atunga Ohio Head Coach");
+    public void shouldBeAbleToGetAListOfAllPlayers() throws Exception {
+        league.getListPlayers();
     }
 
-    //pending to add the logic on how am I going to add players to a new team
-//        Ideas:
-//        -have another class which knows about all the teams (ex, league class knows about all the teams in the league of soccer)
+    @Test
+    public void shouldBeAbleToFindAPlayer() throws Exception {
+        league.findPlayer(player.toString(), team.toString());
+    }
+
+    @Test
+    public void ShouldBeAbleToFindATeam() throws Exception {
+
+    }
+
+    @Test
+    public void ShouldBeAbleToTradeAPlayer() throws Exception {
+
+    }
 }
