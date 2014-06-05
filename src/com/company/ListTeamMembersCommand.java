@@ -3,7 +3,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.HashSet;
+import java.util.Set;
 
 public class ListTeamMembersCommand implements Command {
     private PrintStream printStream;
@@ -47,7 +47,7 @@ public class ListTeamMembersCommand implements Command {
 
         public void listPlayers(Team team){
         printStream.println("The members of the team are: " );
-        HashSet<Player> players = team.getListPlayers();
+        Set<Player> players = team.getListPlayers();
 
         for (Player player : players){
             printStream.println(player.toString());
