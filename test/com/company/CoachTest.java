@@ -1,21 +1,24 @@
 package com.company;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
-/*
-I want the list of all players in the league to also list all of the coaches in the league.
- Coaches are not be findable like players are. Coaches have a name, team, and title.
- */
 public class CoachTest {
+    private Coach coach;
+    private Team team1;
 
-    private Team team;
+    @Before
+    public void setUp(){
+        team1 = mock(Team.class);
+        coach = new Coach("Eva", team1, "Head Coach" );
+    }
 
     @Test
-    public void shouldListCoachesWhenListPlayersFromTheSameTeam(){
-        team = mock(Team.class);
-        Coach coach = new Coach("Eva", team, "Head Coach");
+    public void shouldPrintCoachInformation(){
+        assertEquals("Name:Eva Team:"+ team1 + " Title:Head Coach", coach.toString());
     }
 
 
