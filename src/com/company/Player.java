@@ -4,30 +4,28 @@ package com.company;
  * Created by gzamudio on 5/27/14.
  */
 
-public class Player {
+public class Player extends TeamMember {
     private String age;
     private String number;
-    private String name;
-    private String team;
 
-    public Player(String name, String team, String number, String age) {
-        this.name = name;
-        this.team = team;
+    public Player(String name, Team team, String number, String age) {
+        super(name,team);
         this.number = number;
         this.age = age;
     }
 
-    @Override
+
     public String toString(){
         return "Name:" + name + " Team:" + team + " Number:" + number + " Age:" + age;
     }
 
-    public boolean hasName(String name) {
-        return this.name.equals(name);
+
+    public boolean hasNameAndNumber(String name, String number){
+        return this.name.equals(name) && this.number.equals(number);
     }
 
-    public boolean hasNumber(String number){
-        return this.number.equals(number);
+    public void setTeam(Team team){
+        this.team = team;
     }
 
     @Override
@@ -37,10 +35,8 @@ public class Player {
 
         Player player = (Player) o;
 
-        if (!age.equals(player.age)) return false;
         if (!name.equals(player.name)) return false;
         if (!number.equals(player.number)) return false;
-        if (!team.equals(player.team)) return false;
 
         return true;
     }
@@ -49,8 +45,10 @@ public class Player {
     public int hashCode() {
         int result = age.hashCode();
         result = 31 * result + number.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + team.hashCode();
         return result;
+    }
+
+    public Team getTeam() {
+        return team;
     }
 }
