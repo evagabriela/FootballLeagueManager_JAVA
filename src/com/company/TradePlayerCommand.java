@@ -20,9 +20,13 @@ public class TradePlayerCommand implements Command {
     public void execute() {
         String playerName = promptedInput("Enter the name of the player: ");
         String playerNumber = promptedInput("Enter the number of the player: ");
+
+        Player player1 = league.findPlayer(playerName, playerNumber);
+
         String newTeamInfo = promptedInput("Enter the name of the player's new team: ");
-        league.tradePlayer(playerName, playerNumber, newTeamInfo);
-//        here I can do display player ex. team.displayPlayer(playerName, playerNumber)
+
+        Team team1 = league.findTeam(newTeamInfo);
+        league.tradePlayer(player1, team1);
 
 
     }
