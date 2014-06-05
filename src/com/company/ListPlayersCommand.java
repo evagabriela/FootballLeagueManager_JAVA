@@ -1,7 +1,7 @@
 package com.company;
 
 import java.io.PrintStream;
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by gzamudio on 5/29/14.
@@ -17,7 +17,7 @@ public class ListPlayersCommand implements Command {
 
     @Override
     public void execute() {
-        HashSet<Player> players =  league.getListPlayers();
+        Set<Player> players =  league.getListPlayers();
 
         for (Player player: players ){
             printStream.println(player);
