@@ -28,6 +28,14 @@ public class Player extends TeamMember {
         this.team = team;
     }
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,9 +54,5 @@ public class Player extends TeamMember {
         int result = age.hashCode();
         result = 31 * result + number.hashCode();
         return result;
-    }
-
-    public Team getTeam() {
-        return team;
     }
 }
