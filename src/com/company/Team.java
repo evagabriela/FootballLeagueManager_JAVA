@@ -9,7 +9,7 @@ import java.util.Set;
 public class Team {
     private PrintStream printStream;
     private String name;
-    private HashSet<Player> players;
+    private Set<Player> players;
     private Set<Coach> coaches;
 
     public Team(PrintStream printStream, String name) {
@@ -26,18 +26,8 @@ public class Team {
 
 
 
-    public HashSet<Player> getListPlayers(){
+    public Set<Player> getListPlayers(){
         return players;
-    }
-
-    public Player findPlayer(String name, String number) {
-        for (Player player: players){
-            if (player.hasNameAndNumber(name, number)){
-                return player;
-            }
-        }
-
-    return null;
     }
 
     public void listCoaches(){
@@ -46,17 +36,18 @@ public class Team {
         }
     }
 
+    public Set<Coach> getListCoaches(){
+        return coaches;
+    }
+
     public void addPlayer(Player player1) {
         players.add(player1);
     }
-
-
 
     public void removePlayer(Player player) {
         players.remove(player);
 
     }
-
 
     public void addCoach(Coach coach1) {
         coaches.add(coach1);
