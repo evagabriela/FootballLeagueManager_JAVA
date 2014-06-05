@@ -1,13 +1,10 @@
 package com.company;
 
-public class Coaches {
-    private String name;
-    private String team;
+public class Coach extends TeamMember {
     private String title;
 
-    public Coaches(String name, String team, String title){
-        this.name = name;
-        this.team = team;
+    public Coach(String name, Team team, String title){
+        super(name,team);
         this.title = title;
     }
 
