@@ -60,6 +60,22 @@ public class League {
         player.setTeam(team);
     }
 
+    public Set<Player> getListPlayersOlderThan(String age) {
+        Set<Player> playersOlderThan = new HashSet<Player>();
+
+        for (Team team: teams){
+            Set<Player> teamPlayers = team.getListPlayers();
+            for (Player player: teamPlayers){
+
+                if (Integer.parseInt(player.getAge()) > Integer.parseInt(age)){
+                    playersOlderThan.add(player);
+                }
+            }
+        }
+
+        return playersOlderThan;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
