@@ -9,9 +9,6 @@ public class TeamMember {
         this.team = team;
     }
 
-    public boolean hasName(String name){
-        return this.name.equals(name);
-    }
 
     public boolean isOn(String team){
         return this.team.equals(team);
