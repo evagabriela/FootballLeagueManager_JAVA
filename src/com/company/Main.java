@@ -29,7 +29,7 @@ public class Main {
 
     private static Team buildTeam1(PrintStream printStream){
         Team team1 = new Team(printStream,"team1");
-        Player player1 = new Player("Gaby", team1, "3", "26");
+        Player player1 = new Player("Gaby", team1, "3", "21");
         Player player2 = new Player("Maria", team1, "1", "30");
         team1.addPlayer(player1);
         team1.addPlayer(player2);
@@ -65,6 +65,8 @@ public class Main {
         commands.add(new FindPlayerCommand(printStream, bufferedReader, league));
         commands.add(new ListTeamMembersCommand(league,printStream,bufferedReader));
         commands.add(new TradePlayerCommand(printStream, bufferedReader, league));
+        commands.add(new ListPlayersByAgeCommand(printStream, bufferedReader, league));
+
         return commands;
     }
 
