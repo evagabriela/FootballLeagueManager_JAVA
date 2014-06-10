@@ -8,7 +8,7 @@ public class Player extends TeamMember {
     private String age;
     private String number;
 
-    public Player(String name, Team team, String number, String age) {
+    public Player(String name, String number, String age, Team team) {
         super(name,team);
         this.number = number;
         this.age = age;
