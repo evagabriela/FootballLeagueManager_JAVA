@@ -63,7 +63,7 @@ public class League {
             Set<Player> teamPlayers = team.getListPlayers();
             for (Player player: teamPlayers){
 
-                if (Integer.parseInt(player.getAge()) > Integer.parseInt(age)){
+                if (Integer.parseInt(player.getAge()) >= Integer.parseInt(age)){
                     playersOlderThan.add(player);
                 }
             }
