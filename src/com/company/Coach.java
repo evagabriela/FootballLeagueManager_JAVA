@@ -3,7 +3,7 @@ package com.company;
 public class Coach extends TeamMember {
     private String title;
 
-    public Coach(String name, Team team, String title){
+    public Coach(String name, String title, Team team){
         super(name,team);
         this.title = title;
     }
