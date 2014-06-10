@@ -1,0 +1,6 @@
+team2
+Wayne, Head Coach
+Liz, Assistance Coach
+Keith,2,27
+Mario,4,28
+Lily,1,26
