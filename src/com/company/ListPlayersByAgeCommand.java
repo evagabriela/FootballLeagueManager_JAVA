@@ -30,6 +30,17 @@ public class ListPlayersByAgeCommand implements Command {
 
     }
 
+    public void listPlayers(String age){
+        printStream.println("The players are:" );
+
+        Set<Player> players = league.getListPlayersOlderThan(age);
+
+        for (Player player : players){
+
+            printStream.println(player.toString());
+        }
+    }
+
     private String promptedInput(String prompt) {
         printStream.println(prompt);
         return readLine();
@@ -43,17 +54,6 @@ public class ListPlayersByAgeCommand implements Command {
             throw new InputErrorIOException();
         }
         return playerInfo;
-    }
-
-    public void listPlayers(String age){
-        printStream.println("The players are:" );
-
-        Set<Player> players = league.getListPlayersOlderThan(age);
-
-        for (Player player : players){
-
-            printStream.println(player.toString());
-        }
     }
 
 

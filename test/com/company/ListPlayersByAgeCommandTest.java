@@ -3,11 +3,11 @@ package com.company;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import java.io.BufferedReader;
 import java.io.PrintStream;
-import static org.mockito.Mockito.mock;
+
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class ListPlayersByAgeCommandTest {
 
@@ -30,8 +30,9 @@ public class ListPlayersByAgeCommandTest {
         assertEquals("List all the players older than...", command.name());
     }
 
-    @Test
-    public void shouldGetListPlayersOlderThanTheSpecificAge() throws Exception {
-
-    }
+//    @Test
+//    public void shouldGetListPlayersOlderThanTheSpecificAge() throws Exception {
+//        command.execute();
+//        verify(league).getListPlayers();
+//    }
 }
