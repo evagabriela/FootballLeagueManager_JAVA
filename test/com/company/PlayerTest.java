@@ -21,7 +21,7 @@ public class PlayerTest {
 
         league = mock(League.class);
         team1 = mock(Team.class);
-        player = new Player("Gaby", team1, "3", "26");
+        player = new Player("Gaby", "3", "26", team1);
         printStream = mock(PrintStream.class);
     }
 

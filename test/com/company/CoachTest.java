@@ -13,7 +13,7 @@ public class CoachTest {
     @Before
     public void setUp(){
         team1 = mock(Team.class);
-        coach = new Coach("Eva", team1, "Head Coach" );
+        coach = new Coach("Eva", "Head Coach", team1 );
     }
 
     @Test
