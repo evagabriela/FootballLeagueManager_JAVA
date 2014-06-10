@@ -22,11 +22,7 @@ public class League {
         Set<Player> leaguePlayers = new HashSet<Player>();
 
         for (Team team: teams){
-           Set<Player> teamPlayers = team.getListPlayers();
-           for (Player player: teamPlayers){
-                leaguePlayers.add(player);
-           }
-
+            leaguePlayers.addAll(team.getListPlayers());
         }
         return leaguePlayers;
     }
