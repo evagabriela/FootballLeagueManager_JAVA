@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
 
-/**
- * Created by gzamudio on 5/29/14.
- */
+
 public class Menu {
     private PrintStream printStream;
     private BufferedReader bufferedReader;
@@ -33,6 +31,18 @@ public class Menu {
         return commands.get(readOptionSelection());
     }
 
+    public void chooseOption() throws IOException {
+        currentCommand = listMenuOptions();
+    }
+
+    public boolean userDone(){
+        return currentCommand.equals(quitCommand);
+    }
+
+    public void executeCurrentCommand(){
+        currentCommand.execute();
+    }
+
     private int readOptionSelection() throws IOException {
         String input = bufferedReader.readLine();
         return Integer.parseInt(input) - 1;
@@ -43,18 +53,6 @@ public class Menu {
         for (Command command: commands){
             printStream.println(optionNumber++ + ". " + command.name());
         }
-    }
-
-    public boolean userDone(){
-       return currentCommand.equals(quitCommand);
-    }
-
-    public void executeCurrentCommand(){
-        currentCommand.execute();
-    }
-
-    public void chooseOption() throws IOException {
-        currentCommand = listMenuOptions();
     }
 
 

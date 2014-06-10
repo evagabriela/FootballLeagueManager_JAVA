@@ -24,8 +24,6 @@ public class Team {
         return name;
     }
 
-
-
     public Set<Player> getListPlayers(){
         return players;
     }

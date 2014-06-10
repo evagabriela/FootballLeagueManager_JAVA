@@ -14,6 +14,7 @@ public class ListTeamMembersCommandTest {
     private League league;
     private PrintStream printStream;
     private BufferedReader bufferReader;
+    private Team team;
 
     @Before
     public void setUp(){
@@ -31,6 +32,12 @@ public class ListTeamMembersCommandTest {
 
 //    @Test
 //    public void shouldListAllPlayersAndCoachesWhenExecuteMethodIsCall(){
+//        Command firstCommand = mock(Command.class);
+////        commands.add(firstCommand);
+////        when(bufferedReader.readLine()).thenReturn("1");
+////        menu.executeCurrentCommand();
+//        team = mock(Team.class);
+//        when(league.findTeam("team1")).thenReturn(team);
 //        command.execute();
 //        verify(league).getListPlayers();
 //    }

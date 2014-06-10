@@ -42,13 +42,15 @@ public class MenuTest {
         verify(printStream).println("Please select an option from the menu: ");
     }
 
+
+
 //    @Test
 //    public void shouldExecuteListPlayerCommandWhenOptionOneWasChosen() throws IOException {
-//        when(bufferedReader.readLine()).thenReturn("1");
 //        Command firstCommand = mock(Command.class);
 //        commands.add(firstCommand);
+//        when(bufferedReader.readLine()).thenReturn("1");
+//        menu.executeCurrentCommand();
 //
-//        menu.listMenuOptions();
 //        verify(firstCommand).execute();
 //    }
 

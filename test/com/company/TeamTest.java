@@ -6,12 +6,9 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import static java.util.Arrays.asList;
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 import static org.mockito.Mockito.*;
 
 
@@ -20,10 +17,8 @@ public class TeamTest {
     private Player player;
     private PrintStream printStream;
     private Team team;
-    private  List<Player> players;
     private Set<Coach> coaches;
     private Coach coach;
-    private FindPlayerCommand findPlayerCommand;
     private Set<Player> playersSet;
 
     @Before
@@ -33,10 +28,9 @@ public class TeamTest {
         coach = mock(Coach.class);
         coaches = new HashSet<Coach>();
         coaches.add(coach);
-        players = asList(player);
         playersSet = new HashSet<Player>();
+        playersSet.add(player);
         team = new Team(printStream, "team1");
-        findPlayerCommand = mock(FindPlayerCommand.class);
     }
 
     @Test
@@ -69,28 +63,43 @@ public class TeamTest {
 
     }
 
-//    @Test
-//    public void shouldAddAPlayerIntoTheTeam(){
-//         when(team.toString()).thenReturn("team1");
-//         when(player.toString()).thenReturn("Name:Gaby Team:"+team + " Number: 3 Age: 26");
-//
-//         team.addPlayer(player);
-//
-//         assertEquals(player, team.getListPlayers().iterator().next());
-//
-//    }
+    @Test
+    public void shouldReturnTrueIfTeamNameIsEqualsToInput(){
+        assertTrue(team.hasName("team1"));
+    }
+
+//  Do I Need to write the following tests?  we are just testing that we can add to a hashset
+    @Test
+    public void shouldAddPlayerInATeam(){
+        team.addPlayer(player);
+        assertTrue(playersSet.contains(player));
+    }
+
+    @Test
+    public void shouldRemovePlayerInATeam(){
+        playersSet.remove(player);
+        team.removePlayer(player);
+        assertFalse(playersSet.contains(player));
+    }
+
+    @Test
+    public void shouldAddCoachInATeam(){
+        team.addCoach(coach);
+        assertTrue(coaches.contains(coach));
+    }
+
+//    ***** Need to finish this one? why doesnt work?
 
 //    @Test
-//    public void shouldRemoveAPlayerFromATeam(){
-//         when(team.toString()).thenReturn("team1");
-//         when(player.toString()).thenReturn("Name:Gaby Team:"+team + " Number: 3 Age: 26");
-//         team.removePlayer(player);
+//    public void shouldReturnTheListOfAllTheMembersOfATeam(){
+////        when(player.toString()).thenReturn("Name:Gaby Team:"+team + " Number: 3 Age: 26");
+////        when(coach.toString()).thenReturn("Eva Atunga");
+//        when(player.isOn("team1")).thenReturn(true);
+//        when(coach.isOn("team1")).thenReturn(true);
+//        playersSet.add(player);
+//        coaches.add(coach);
 //
-//        assertFalse(playersSet.contains(player));
+//        assertEquals("bla",  team.team("Team1"));
 //    }
-
-
-
-
 
 }
