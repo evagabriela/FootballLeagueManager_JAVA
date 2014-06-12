@@ -35,9 +35,6 @@ public class Main {
         controller.start();
     }
 
-
-
-
     private static List<Command> createCommands(League league, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
         List<Command> commands = new ArrayList<Command>();
         commands.add(new ListPlayersCommand(league,printStream));
@@ -45,7 +42,6 @@ public class Main {
         commands.add(new ListTeamMembersCommand(league,printStream,bufferedReader));
         commands.add(new TradePlayerCommand(printStream, bufferedReader, league));
         commands.add(new ListPlayersByAgeCommand(printStream, bufferedReader, league));
-
         return commands;
     }
 

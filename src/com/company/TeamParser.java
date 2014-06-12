@@ -19,7 +19,7 @@ public class TeamParser {
         return team;
     }
 
-    private Team parseFile(BufferedReader bufferedReader) throws IOException {
+    public Team parseFile(BufferedReader bufferedReader) throws IOException {
         String line;
         line = bufferedReader.readLine();
         Team team = new Team(printStream, line);

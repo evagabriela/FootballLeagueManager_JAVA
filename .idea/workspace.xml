@@ -156,8 +156,8 @@
           <file leaf-file-name="TeamParserTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/com/company/TeamParserTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8589928" vertical-offset="383" max-vertical-offset="1078">
-                  <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.8791367" vertical-offset="383" max-vertical-offset="1078">
+                  <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -861,12 +861,12 @@
       <workItem from="1402256247090" duration="9264000" />
       <workItem from="1402359486011" duration="15625000" />
       <workItem from="1402504066449" duration="11239000" />
-      <workItem from="1402591667576" duration="2291000" />
+      <workItem from="1402591667576" duration="2329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143950000" />
+    <option name="totallyTimeSpent" value="143988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1440" height="874" extended-state="0" />
@@ -1366,8 +1366,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/company/TeamParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8589928" vertical-offset="383" max-vertical-offset="1078">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8791367" vertical-offset="383" max-vertical-offset="1078">
+          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

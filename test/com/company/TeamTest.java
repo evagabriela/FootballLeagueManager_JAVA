@@ -20,6 +20,7 @@ public class TeamTest {
     private Set<Coach> coaches;
     private Coach coach;
     private Set<Player> playersSet;
+    private League league;
 
     @Before
     public void setUp(){
@@ -31,6 +32,8 @@ public class TeamTest {
         playersSet = new HashSet<Player>();
         playersSet.add(player);
         team = new Team(printStream, "team1");
+        league = mock(League.class);
+
     }
 
     @Test
@@ -96,10 +99,15 @@ public class TeamTest {
 ////        when(coach.toString()).thenReturn("Eva Atunga");
 //        when(player.isOn("team1")).thenReturn(true);
 //        when(coach.isOn("team1")).thenReturn(true);
-//        playersSet.add(player);
-//        coaches.add(coach);
 //
-//        assertEquals("bla",  team.team("Team1"));
+//        team.addPlayer(player);
+//        team.addCoach(coach);
+////        playersSet.add(player);
+//
+//        coaches.add(coach);
+//        league.addTeam(team);
+//
+//        assertEquals("bla", team.team("Team1"));
 //    }
 
 }

@@ -9,9 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class MenuTest {
     private PrintStream printStream;
@@ -29,7 +27,7 @@ public class MenuTest {
 
         commands = new ArrayList<Command>();
         someCommand = mock(Command.class);
-        commands.add(someCommand);
+//        commands.add(someCommand);
 
         menu = new Menu(printStream, bufferedReader, commands, done);
     }
@@ -43,15 +41,15 @@ public class MenuTest {
     }
 
 
-
 //    @Test
 //    public void shouldExecuteListPlayerCommandWhenOptionOneWasChosen() throws IOException {
-//        Command firstCommand = mock(Command.class);
-//        commands.add(firstCommand);
+//        System.out.println("after removing the quit command " + commands);
+//        when(done.isDone()).thenReturn(true);
 //        when(bufferedReader.readLine()).thenReturn("1");
+//        menu.listMenuOptions();
 //        menu.executeCurrentCommand();
 //
-//        verify(firstCommand).execute();
+//        verify(commands.get(0)).execute();
 //    }
 
 //    @Test

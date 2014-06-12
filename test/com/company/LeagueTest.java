@@ -7,7 +7,6 @@ import java.io.PrintStream;
 import java.util.HashSet;
 import java.util.Set;
 
-import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -72,15 +71,15 @@ public class LeagueTest {
 //        assertEquals(player, league.findPlayer(player.toString(), team.toString()));
 //    }
 
-    @Test
-    public void ShouldBeAbleToFindATeam() throws Exception {
-        when(team.toString()).thenReturn("team1");
-        teams.add(team);
-        league.addTeam(team);
-        when(team.hasName("team1")).thenReturn(true);
-
-        assertEquals(team,league.findTeam("team1") );
-    }
+//    @Test
+//    public void ShouldBeAbleToFindATeam() throws Exception {
+//        when(team.toString()).thenReturn("team1");
+//        teams.add(team);
+//        league.addTeam(team);
+//        when(team.hasName("team1")).thenReturn(true);
+//
+//        assertEquals(team,league.findTeam("team1") );
+//    }
 
 //    @Test
 //    public void ShouldTradeAPlayerFromTeamToOtherTeam() throws Exception {

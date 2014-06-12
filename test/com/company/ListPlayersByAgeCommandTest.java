@@ -32,7 +32,7 @@ public class ListPlayersByAgeCommandTest {
 
 //    @Test
 //    public void shouldGetListPlayersOlderThanTheSpecificAge() throws Exception {
-//        command.execute();
-//        verify(league).getListPlayers();
+//        command.listPlayers("26");
+//        verify(command).execute();
 //    }
 }
