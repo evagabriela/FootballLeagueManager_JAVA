@@ -13,5 +13,23 @@ public class Coach extends TeamMember {
         return "Name:" + name + " Team:" + team + " Title:" + title ;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Coach)) return false;
 
+        Coach coach = (Coach) o;
+
+        if (!title.equals(coach.title)) return false;
+
+        return true;
+    }
+
+
+        @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + title.hashCode();
+        return result;
+    }
 }

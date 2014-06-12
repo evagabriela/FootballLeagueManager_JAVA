@@ -1,8 +1,5 @@
 package com.company;
 
-/**
- * Created by gzamudio on 5/27/14.
- */
 
 public class Player extends TeamMember {
     private String age;
@@ -42,6 +39,7 @@ public class Player extends TeamMember {
         if (o == null || getClass() != o.getClass()) return false;
 
         Player player = (Player) o;
+
 
         if (!name.equals(player.name)) return false;
         if (!number.equals(player.number)) return false;
