@@ -14,23 +14,4 @@ public class TeamMember {
         return this.team.equals(team);
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof TeamMember)) return false;
-//
-//        TeamMember that = (TeamMember) o;
-//
-//        if (!name.equals(that.name)) return false;
-//        if (!team.equals(that.team)) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = name.hashCode();
-//        result = 31 * result + team.hashCode();
-//        return result;
-//    }
 }

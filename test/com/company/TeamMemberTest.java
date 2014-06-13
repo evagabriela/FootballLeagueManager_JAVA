@@ -13,20 +13,21 @@ public class TeamMemberTest {
     @Before
     public void setUp(){
         team1 = mock(Team.class);
+        teamMember = new TeamMember("Gaby", team1);
         player = mock(Player.class);
     }
 
-//    **** Need to update this code:  Why is not passing?
+////    **** Need to update this code:  Why is not passing?
 //    @Test
-//    public void shouldReturnTrueIfTeamMemberIsOnTheTeam(){
+//    public void shouldReturnTrueIfTeamMemberIsInTeamInput(){
+////        HashSet<Player> players = new HashSet<Player>();
 //        when(team1.toString()).thenReturn("team1");
-//        when(team1.hasName("team1")).thenReturn(true);
 //        when(player.toString()).thenReturn("Gaby");
+////        players.add(player);
+//        when(team1.hasName("team1")).thenReturn(true);
+////        when(team1.getListPlayers()).thenReturn(players);
 //        team1.addPlayer(player);
-//
-//        teamMember = new TeamMember("Gaby", team1);
 //        assertTrue(teamMember.isOn("team1"));
-//
 //    }
 
 

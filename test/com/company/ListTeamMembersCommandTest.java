@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -14,7 +15,11 @@ public class ListTeamMembersCommandTest {
     private League league;
     private PrintStream printStream;
     private BufferedReader bufferReader;
+    private List<Command> commands;
     private Team team;
+    private Command someCommand;
+    private Player player;
+    private Coach coach;
 
     @Before
     public void setUp(){
@@ -23,6 +28,12 @@ public class ListTeamMembersCommandTest {
         printStream = mock(PrintStream.class);
         bufferReader = mock(BufferedReader.class);
         command = new ListTeamMembersCommand(league, printStream, bufferReader);
+        someCommand = mock(Command.class);
+        team = mock(Team.class);
+        player = mock(Player.class);
+        coach = mock(Coach.class);
+
+
     }
 
     @Test
@@ -38,7 +49,7 @@ public class ListTeamMembersCommandTest {
 ////        menu.executeCurrentCommand();
 //        team = mock(Team.class);
 //        when(league.findTeam("team1")).thenReturn(team);
-//        command.execute();
+//        commands.execute();
 //        verify(league).getListPlayers();
 //    }
 
