@@ -9,6 +9,7 @@ import java.util.Set;
 
 import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class LeagueTest {
@@ -44,6 +45,27 @@ public class LeagueTest {
 
         assertTrue(league.getListTeams().contains(team));
     }
+
+    @Test
+    public void shouldGetTeamListOfPlayersFromATeam(){
+        league.addTeam(team);
+
+        league.getListPlayers();
+
+        verify(team).getListPlayers();
+    }
+
+//    @Test
+//
+//    public void shouldFindTeamOnALeague(){
+//        when(team.toString()).thenReturn("team1");
+//
+//        league.addTeam(team);
+//
+//        league.findTeam("team1");
+//
+//        verify(team).hasName("team1");
+//    }
 
 
 //    @Test

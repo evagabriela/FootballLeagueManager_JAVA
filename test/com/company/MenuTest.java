@@ -27,7 +27,7 @@ public class MenuTest {
 
         commands = new ArrayList<Command>();
         someCommand = mock(Command.class);
-//        commands.add(someCommand);
+        commands.add(someCommand);
 
         menu = new Menu(printStream, bufferedReader, commands, done);
     }
@@ -41,38 +41,26 @@ public class MenuTest {
     }
 
 
-//    @Test
-//    public void shouldExecuteListPlayerCommandWhenOptionOneWasChosen() throws IOException {
-//        System.out.println("after removing the quit command " + commands);
-//        when(done.isDone()).thenReturn(true);
-//        when(bufferedReader.readLine()).thenReturn("1");
-//        menu.listMenuOptions();
-//        menu.executeCurrentCommand();
-//
-//        verify(commands.get(0)).execute();
-//    }
+    @Test
+    public void shouldExecuteListPlayerCommandWhenOptionOneWasChosen() throws IOException {
+        when(bufferedReader.readLine()).thenReturn("1");
 
+        menu.chooseOption();
+        menu.executeCurrentCommand();
+
+        verify(someCommand).execute();
+    }
+
+//    Need to add when Invalid input (Where do I add the try and catch or how to handle IOException?
 //    @Test
-//    public void shouldExecuteFindPlayerCommandWhenOptionTwoWasChosenFromMenu() throws IOException {
-//        when(bufferedReader.readLine()).thenReturn("2");
-//        Command secondCommand = mock(Command.class);
-//        commands.add(secondCommand);
+//    public void shouldReturnAnErrorMessageIfInvalidOption() throws IOException {
+//        when(bufferedReader.readLine()).thenReturn("0");
 //
-//        menu.listMenuOptions();
-//        verify(secondCommand).execute();
+////        menu.executeCurrentCommand();
+//        assertEquals("bla", menu.listMenuOptions());
 //
 //    }
 
-//    @Test
-//    public void shouldExecuteQuiteWhenOptionThreeWasChosenFromMenu() throws IOException {
-//        when(bufferedReader.readLine()).thenReturn("3");
-//        Command thirdCommand = mock(Command.class);
-//        commands.add(thirdCommand);
-//
-//        menu.listMenuOptions();
-//        verify(thirdCommand).execute();
-//
-//    }
 
 
 

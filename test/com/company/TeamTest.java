@@ -71,7 +71,6 @@ public class TeamTest {
         assertTrue(team.hasName("team1"));
     }
 
-//  Do I Need to write the following tests?  we are just testing that we can add to a hashset
     @Test
     public void shouldAddPlayerInATeam(){
         team.addPlayer(player);
@@ -91,23 +90,24 @@ public class TeamTest {
         assertTrue(coaches.contains(coach));
     }
 
-//    ***** Need to finish this one? why doesnt work?
-
+//How to make this two objects equals?
 //    @Test
 //    public void shouldReturnTheListOfAllTheMembersOfATeam(){
-////        when(player.toString()).thenReturn("Name:Gaby Team:"+team + " Number: 3 Age: 26");
-////        when(coach.toString()).thenReturn("Eva Atunga");
+//        when(player.toString()).thenReturn("Name:Gaby Team:"+ team + " Number:3 Age:26");
+//        when(coach.toString()).thenReturn("Eva, Head Coach");
 //        when(player.isOn("team1")).thenReturn(true);
 //        when(coach.isOn("team1")).thenReturn(true);
-//
 //        team.addPlayer(player);
 //        team.addCoach(coach);
-////        playersSet.add(player);
 //
-//        coaches.add(coach);
-//        league.addTeam(team);
+//        Team teamTest = new Team(printStream, "team1");
+//        Coach coach1 = new Coach("Eva", "Head Coach", teamTest);
+//        Player player1 = new Player("Gaby", "3", "26", teamTest);
+//        teamTest.addCoach(coach1);
+//        teamTest.addPlayer(player1);
 //
-//        assertEquals("bla", team.team("Team1"));
+//
+//        assertEquals(teamTest.getListPlayers().iterator().next(), team.team("team1").get(0));
 //    }
 
 }

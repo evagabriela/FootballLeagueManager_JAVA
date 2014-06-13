@@ -31,8 +31,8 @@ public class Main {
         List<Command> commands = createCommands(league, printStream, bufferedReader, done);
         Menu menu = new Menu(printStream, bufferedReader, commands, done);
         FootballLeagueController controller = new FootballLeagueController(printStream, menu);
-
         controller.start();
+
     }
 
     private static List<Command> createCommands(League league, PrintStream printStream, BufferedReader bufferedReader, DoneState done){

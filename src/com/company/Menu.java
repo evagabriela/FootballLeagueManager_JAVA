@@ -33,6 +33,7 @@ public class Menu {
 
     public void chooseOption() throws IOException {
         currentCommand = listMenuOptions();
+
     }
 
     public boolean userDone(){
@@ -40,7 +41,7 @@ public class Menu {
     }
 
     public void executeCurrentCommand(){
-        currentCommand.execute();
+            currentCommand.execute();
     }
 
     private int readOptionSelection() throws IOException {
