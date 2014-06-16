@@ -33,7 +33,6 @@ public class LeagueTest {
 
     @Test
     public void shouldAddTeamToTheLeague() throws Exception {
-        when(team.toString()).thenReturn("team1");
         teams.add(team);
         league.addTeam(team);
 

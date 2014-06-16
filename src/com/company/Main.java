@@ -14,6 +14,7 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         DoneState done = new DoneState(false);
         League league = new League();
+        Game game = new Game();
 
         String fileTeamOneFile = "resources/team1InputFile.txt";
         String fileTeamTwoFile = "resources/team2InputFile.txt";
@@ -27,7 +28,10 @@ public class Main {
         league.addTeam(team1);
         league.addTeam(team2);
 
+        game.add(team1);
+        game.add(team2);
 
+//        System.out.println(game.results(team1));
         List<Command> commands = createCommands(league, printStream, bufferedReader, done);
         Menu menu = new Menu(printStream, bufferedReader, commands, done);
         FootballLeagueController controller = new FootballLeagueController(printStream, menu);
