@@ -13,10 +13,12 @@ public class Game {
         teamPointsRecord = new HashMap<Team, Integer>();
     }
 
-    public void getTeamsPointsRecordInAGame(){
+    public Map<Team, Integer> getTeamsPointsRecordInAGame(){
         for (Team team: teams){
-            teamPointsRecord.put(team, random.nextInt(5) + 1);
+             teamPointsRecord.put(team, random.nextInt(5) + 1);
         }
+
+        return teamPointsRecord;
     }
 
     public String results(Team team){
@@ -60,4 +62,12 @@ public class Game {
     }
 
 
+    public Team getTeam(String teamName) {
+        for (Team team: teams){
+            if (team.hasName(teamName)){
+                return team;
+            }
+        }
+        throw new InputErrorIOException();
+    }
 }

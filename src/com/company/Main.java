@@ -31,21 +31,21 @@ public class Main {
         game.add(team1);
         game.add(team2);
 
-//        System.out.println(game.results(team1));
-        List<Command> commands = createCommands(league, printStream, bufferedReader, done);
+        List<Command> commands = createCommands(league, game, printStream, bufferedReader, done);
         Menu menu = new Menu(printStream, bufferedReader, commands, done);
         FootballLeagueController controller = new FootballLeagueController(printStream, menu);
         controller.start();
 
     }
 
-    private static List<Command> createCommands(League league, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
+    private static List<Command> createCommands(League league,Game game, PrintStream printStream, BufferedReader bufferedReader, DoneState done){
         List<Command> commands = new ArrayList<Command>();
         commands.add(new ListPlayersCommand(league,printStream));
         commands.add(new FindPlayerCommand(printStream, bufferedReader, league));
         commands.add(new ListTeamMembersCommand(league,printStream,bufferedReader));
         commands.add(new TradePlayerCommand(printStream, bufferedReader, league));
         commands.add(new ListPlayersByAgeCommand(printStream, bufferedReader, league));
+        commands.add(new ListGameResultsCommand(printStream,bufferedReader,game));
         return commands;
     }
 
