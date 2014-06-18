@@ -45,6 +45,7 @@ public class Main {
         commands.add(new ListTeamMembersCommand(league,printStream,bufferedReader));
         commands.add(new TradePlayerCommand(printStream, bufferedReader, league));
         commands.add(new ListPlayersByAgeCommand(printStream, bufferedReader, league));
+        commands.add(new GameScoresCommand(printStream,bufferedReader,game));
         commands.add(new ListGameResultsCommand(printStream,bufferedReader,game));
         return commands;
     }

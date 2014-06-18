@@ -4,29 +4,30 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class ListGameResultsCommand implements Command {
-    private final PrintStream printStream;
-    private final BufferedReader bufferedReader;
-    private final Game game;
+public class GameScoresCommand implements Command {
+    private PrintStream printStream;
+    private BufferedReader bufferedReader;
+    private Game game;
 
-    public ListGameResultsCommand(PrintStream printStream, BufferedReader bufferedReader, Game game) {
+    public GameScoresCommand(PrintStream printStream, BufferedReader bufferedReader, Game game) {
+
         this.printStream = printStream;
         this.bufferedReader = bufferedReader;
         this.game = game;
     }
 
+
     @Override
     public void execute() {
+        String teamName = promptedInput ("Enter the name of the team");
+        String scoreInput = promptedInput("Enter the score");
 
-        String teamName = promptedInput("What team result's do you want to see");
-
-        try{
-            Team team = game.getTeam(teamName);
-            printStream.println(game.results(team));
-        } catch (InputErrorIOException e) {
-            printStream.println("Team not found in game");
+        Team foundTeam = game.getTeam(teamName);
+        if (foundTeam != null){
+            game.getTeamsPointsRecordInAGame(foundTeam, scoreInput);
+        } else {
+            printStream.println("Invalid Entry");
         }
-
     }
 
     private String promptedInput(String prompt) {
@@ -42,10 +43,11 @@ public class ListGameResultsCommand implements Command {
             throw new InputErrorIOException();
         }
         return teamInfo;
+
     }
 
     @Override
     public String name() {
-        return "List the results of a Game";
+        return "Game Scores Input";
     }
 }
