@@ -18,7 +18,7 @@ public class Game {
     }
 
     public String results(Team team){
-        return "Team " + getTeam(team.toString()) + " Score " + getTeamPoints(team) + " Game Status " + getTeamGameStatus(team);
+        return "Team " + team.toString() + " Score " + getTeamPoints(team) + " Game Status " + getTeamGameStatus(team);
     }
 
     public void add(Team team) {
@@ -40,33 +40,16 @@ public class Game {
         return result;
     }
 
-    private Integer getOtherTeamScore(Team team){
-        Integer resultPointsTeam = Integer.parseInt(getTeamPoints(team));
-//get the points value of the other team and compare it to resultPointsTeam
-        Integer otherTeamPoints = 0;
-
-        Collection<Integer> values = teamPointsRecord.values();
-        for (Integer value: values){
-            if (!(value == resultPointsTeam)){
-                otherTeamPoints = value;
-                return otherTeamPoints;
-            }
-        }
-        return otherTeamPoints;
-    }
-
-
     public String getTeamGameStatus(Team team){
         Integer resultPointsTeam = Integer.parseInt(getTeamPoints(team));
-        Integer otherTeamPoints = getOtherTeamScore(team);
 
         if (resultPointsTeam == getMaxPointInGameResult()){
             return "Won!";
         } else if (resultPointsTeam < getMaxPointInGameResult()){
             return "Lost";
-        } else if ( resultPointsTeam == otherTeamPoints){
-            return "Tied";
-        } else return null;
+        } else {
+            return "Tied!";
+        }
 
     }
 
